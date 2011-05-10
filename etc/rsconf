@@ -1,0 +1,5 @@
+db_driver=Pg
+db_host=hostname
+db_user=username
+db_pass=password
+db_name=dbname

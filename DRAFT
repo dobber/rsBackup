@@ -1,0 +1,40 @@
+Plan to rewrite rsbackup procedures for general multi-server rsync/snapshot server farms
+
+rsBackup is a system for daily backups using rsync as a primary method of sync
+
+1) what the user wants
+	- daily (or more often) full file backup
+	- always latest backup - easy to switch to backup disk in production
+	- incremental backups - can be rolled over the full backup
+	- sync with gzip or gzip archive before syncing
+	- backup schemas - every server/disk/application requires a different backup
+		- pre-made lvm snapshots with mysql backup, cpanel user backups, etc
+	- modular - can write their own logging, snapshot procedures
+		- hook into (almost) every step - before schema, schema, after schema, before sync, sync, after sync, etc
+	- require (almost) zero configuration for basic stuff, can work as a nuclear plant
+	- connect from backup server to main server - better security
+		- try to run as a simple user with sudo
+	- different storage systems
+		- single disk
+		- remote server with (multiple) disks
+		- Amazon S3
+		- Dropbox, Google Drive
+		- Other storages
+	- integrate with other popular server management systems
+	- cli interface
+		- automatic discovery of servers/disks
+		- add/edit/delete/view backup server/disk
+		- add/edit/delete/view master server/disk
+		- add/edit/delete/view schema
+		- add/edit/delete/view module
+		- view operations, logs, stats
+	- web interface
+	- stats - local stats
+	- will not support ftp, scp, netcat, etc
+	- monitoring - nagios
+	- stats - observium, etc
+
+
+wrapper:
+load config
+
